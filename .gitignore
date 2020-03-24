@@ -6,3 +6,4 @@ selenium-basic-maven/target
 selenium-basic-maven/.vscode
 selenium-basic-maven/bin
 selenium-basic-maven/.classpath
+.vscode/settings.json
