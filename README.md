@@ -9,6 +9,12 @@ Simple examples using Selenium Webdriver for test automation
 
 ## Index
 
-### Selenium Basic Maven
+- [Basic Maven Configuration](selenium-basic-maven/README.md)
 
-### Selenium Basic Gradle
+- Basic Gradle Configuration
+
+- Simple Interactions
+
+- Screenshots
+
+- Multi-browser testing
