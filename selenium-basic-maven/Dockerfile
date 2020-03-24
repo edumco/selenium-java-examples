@@ -4,6 +4,6 @@ RUN mkdir /app
 
 COPY selenium-basic-maven/src /app/src
 
-COPY pom.xml /app/src/pom.xml
+COPY selenium-basic-maven/pom.xml /app/src/pom.xml
 
 WORKDIR /app
