@@ -12,7 +12,7 @@ In a maven project all dependencies and configurations are saved on a single XML
 
 ### Dependencies
 
-The community around the Apache Maven project mantains a [public repository called Maven Central] where you can search, download or reference Java libraries.
+The community around the Apache Maven project mantains a [public repository called Maven Central](https://mvnrepository.com/repos/central) where you can search, download or reference Java libraries.
 
 For this example we use the following libraries:
 
