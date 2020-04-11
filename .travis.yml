@@ -1,6 +1,6 @@
 language: java
 
-script: "mvn clean test"
+script: "mvn -f selenium-basic-maven/pom.xml clean test"
 
 jdk:
   - openjdk8
