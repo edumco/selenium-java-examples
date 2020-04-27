@@ -2,9 +2,7 @@ language: java
 
 os: linux
   
-dist: 
-  - xenial
-  - bionic
+dist: bionic
 
 jdk:
   - openjdk8
