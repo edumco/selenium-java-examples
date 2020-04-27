@@ -1,7 +1,15 @@
 language: java
 
+os: linux
+  
+dist: 
+  - xenial
+  - bionic
+
 jdk:
   - openjdk8
+  - openjdk11
+  - openjdk14
   
 addons:
   chrome: stable
