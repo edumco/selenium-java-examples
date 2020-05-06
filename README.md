@@ -9,7 +9,7 @@ Simple examples using Selenium Webdriver for test automation
 
 ## About
 
-Using selenium is easy but the setup still very comnplex. This repo try to put togheter the configuration and basic configuration.
+Using selenium is easy but the setup still very complex. This repo try to put togheter the configuration and basic configuration.
 
 ## Usage
 
