@@ -7,9 +7,11 @@
 
 Simple examples using Selenium Webdriver for test automation
 
-## Why Selenium
+## About
 
-## Index
+Using selenium is easy but the setup still very comnplex. This repo try to put togheter the configuration and basic configuration.
+
+## Usage
 
 - [Basic Maven Configuration](selenium-basic-maven/README.md)
 
@@ -20,3 +22,7 @@ Simple examples using Selenium Webdriver for test automation
 - Screenshots
 
 - Multi-browser testing
+
+## License
+
+[GNU General Public License v3.0](LICENSE)
