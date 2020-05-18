@@ -8,7 +8,6 @@ jdk:
   - openjdk11
 
 env:
-  - BROWSER_NAME=
   - BROWSER_NAME=firefox
   - BROWSER_NAME=chrome
 
@@ -20,4 +19,6 @@ cache:
   directories:
   - $HOME/.m2
   
-script: "mvn -f selenium-basic-maven/pom.xml clean test"
+script: 
+  - "mvn -f selenium-basic-maven/pom.xml clean test"
+  - "mvn -f basic-framework/pom.xml clean test"
