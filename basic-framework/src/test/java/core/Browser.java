@@ -41,6 +41,8 @@ public class Browser {
 
         ChromeOptions options = new ChromeOptions();
 
+        options.addArguments("--headless");
+
         browser = new ChromeDriver(options);
     }
 
@@ -48,6 +50,8 @@ public class Browser {
         WebDriverManager.firefoxdriver().setup();
 
         FirefoxOptions options = new FirefoxOptions();
+
+        options.setHeadless(true);
 
         browser = new FirefoxDriver(options);
     }
