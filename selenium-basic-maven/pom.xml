@@ -6,6 +6,10 @@
 	<name>Selenium Basic Maven</name>
 	<description>The most basic example of a Selenium project using Maven</description>
 
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
