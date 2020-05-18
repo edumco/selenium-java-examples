@@ -5,12 +5,16 @@ os: linux
 dist: bionic
 
 jdk:
-  - openjdk8
   - openjdk11
-  - openjdk14
-  
+
+env:
+  - BROWSER_NAME=
+  - BROWSER_NAME=firefox
+  - BROWSER_NAME=chrome
+
 addons:
   chrome: stable
+  firefox: latest
   
 cache:
   directories:
