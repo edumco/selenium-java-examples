@@ -37,22 +37,18 @@ public class Browser {
     }
 
     private static void configureChromeInstance() {
+
         WebDriverManager.chromedriver().setup();
-
         ChromeOptions options = new ChromeOptions();
-
         options.addArguments("--headless");
-
         browser = new ChromeDriver(options);
     }
 
     private static void configureFirefoxInstance() {
+
         WebDriverManager.firefoxdriver().setup();
-
         FirefoxOptions options = new FirefoxOptions();
-
         options.setHeadless(true);
-
         browser = new FirefoxDriver(options);
     }
 
@@ -61,7 +57,7 @@ public class Browser {
         String browserName = System.getenv("BROWSER_NAME");
 
         if (browserName == null) {
-            browserName = "firefox";
+            browserName = "chrome";
         }
         return browserName.toLowerCase();
     }
