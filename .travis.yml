@@ -19,9 +19,10 @@ cache:
   directories:
     - $HOME/.m2
 
-stages:
-  - basic-test:
-    script: "mvn -f basic-test/pom.xml clean test"
+jobs:
+  include:
+    - stage: "basic-test"
+      script: "mvn -f basic-test/pom.xml clean test"
 
-  - stage: basic-framework
-    script: "mvn -f basic-framework/pom.xml clean test"
+    - stage: "basic-framework"
+      script: "mvn -f basic-framework/pom.xml clean test"
