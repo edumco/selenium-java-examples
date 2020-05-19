@@ -4,25 +4,22 @@ os: linux
 
 dist: bionic
 
-jdk:
-  - openjdk11
-
-env:
-  - BROWSER_NAME=firefox
-  - BROWSER_NAME=chrome
-
 addons:
   chrome: stable
   firefox: latest
 
+jdk:
+  - openjdk11
+
+env:
+  - POM=basic-test/pom.xml  BROWSER_NAME=firefox
+  - POM=basic-test/pom.xml  BROWSER_NAME=chrome
+  
+  - POM=basic-framework/pom.xml  BROWSER_NAME=firefox
+  - POM=basic-framework/pom.xml  BROWSER_NAME=chrome
+
+script: mvn -f $POM clean test
+
 cache:
   directories:
     - $HOME/.m2
-
-jobs:
-  include:
-    - stage: "basic-test"
-      script: "mvn -f basic-test/pom.xml clean test"
-
-    - stage: "basic-framework"
-      script: "mvn -f basic-framework/pom.xml clean test"
