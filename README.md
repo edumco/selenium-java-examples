@@ -1,9 +1,9 @@
 # Selenium Examples ![Selenium icon](icon.png)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Build Status](https://travis-ci.com/edumco/selenium-examples.svg?branch=master)](https://travis-ci.com/edumco/selenium-examples)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/eb2aabea896249c081881e7724f651da)](https://www.codacy.com/manual/edumco/selenium-examples?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=edumco/selenium-examples&amp;utm_campaign=Badge_Grade)
-[![Known Vulnerabilities](https://snyk.io/test/github/edumco/selenium-examples/badge.svg?targetFile=selenium-basic-maven/pom.xml)](https://snyk.io/test/github/edumco/selenium-examples?targetFile=selenium-basic-maven/pom.xml)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/edumco/selenium-examples/Java%20CI%20with%20Maven?label=Github%20Actions)](https://github.com/edumco/selenium-examples/actions)
+[![Travis (.com)](https://img.shields.io/travis/com/edumco/selenium-examples?label=Travis%20CI)](https://travis-ci.com/github/edumco/selenium-examples)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/eb2aabea896249c081881e7724f651da)](https://www.codacy.com/manual/edumco/selenium-examples?utm_source=github.com&utm_medium=referral&utm_content=edumco/selenium-examples&utm_campaign=Badge_Grade)
 
 Simple examples using Selenium Webdriver for test automation
 
@@ -13,15 +13,9 @@ Using selenium is easy but the setup still very complex. This repo try to put to
 
 ## Usage
 
-- [Basic Maven Configuration](selenium-basic-maven/README.md)
+- [Basic Test](basic-test/README.md)
 
-- Basic Gradle Configuration
-
-- Simple Interactions
-
-- Screenshots
-
-- Multi-browser testing
+- [Basic Framework](basic-framework/README.md)
 
 ## License
 
