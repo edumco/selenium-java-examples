@@ -5,44 +5,34 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
-  build-selenium-basic-maven:
+  basic-test-chrome:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        env: [BROWSER_NAME: chrome, BROWSER_NAME: firefox]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: maven clean test
+        run: mvn clean test --file selenium-basic-maven/pom.xml
+        env: ${{ matrix.env }}
+
+  basic-framework:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 11
-      uses: actions/setup-java@v1
-      with:
-        java-version: 11
-    - name: maven clean test --file selenium-basic-maven/pom.xml
-      run: mvn clean test --file selenium-basic-maven/pom.xml
-  
-  build-basic-framework-on-firefox:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 11
-      uses: actions/setup-java@v1
-      with:
-        java-version: 11
-    - name: maven clean test --file basic-framework/pom.xml
-      run: mvn clean test --file basic-framework/pom.xml
-      env:
-        BROWSER_NAME: firefox
-        
-  build-basic-framework-on-chrome:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 11
-      uses: actions/setup-java@v1
-      with:
-        java-version: 11
-    - name: maven clean test --file basic-framework/pom.xml
-      run: mvn clean test --file basic-framework/pom.xml
-      env:
-        BROWSER_NAME: chrome
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: maven clean test --file basic-framework/pom.xml
+        run: mvn clean test --file basic-framework/pom.xml
+        env: ${{ matrix.env }}
