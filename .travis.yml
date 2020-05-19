@@ -1,7 +1,7 @@
 language: java
 
 os: linux
-  
+
 dist: bionic
 
 jdk:
@@ -14,11 +14,15 @@ env:
 addons:
   chrome: stable
   firefox: latest
-  
+
 cache:
   directories:
-  - $HOME/.m2
-  
-script: 
-  - "mvn -f selenium-basic-maven/pom.xml clean test"
-  - "mvn -f basic-framework/pom.xml clean test"
+    - $HOME/.m2
+
+jobs:
+  include:
+    - stage: basic-test
+      script: "mvn -f basic-test/pom.xml clean test"
+
+    - stage: basic-framework
+      script: "mvn -f basic-framework/pom.xml clean test"
