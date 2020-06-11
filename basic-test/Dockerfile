@@ -28,8 +28,8 @@ FROM adoptopenjdk/openjdk11:alpine-jre
 
 RUN mkdir /app
 
-COPY --from=0 /app/target/*.jar /app/app.jar
-
 WORKDIR /app
 
-CMD ["java" "-jar" "app.jar"] 
+COPY --from=0 /app/target/*jar-with-dependencies.jar /app/app.jar
+
+CMD [ "java", "-jar", "app.jar" ]
