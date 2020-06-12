@@ -1,47 +1,54 @@
-# This workflow will build a Java project with Maven
-# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+name: CI with Maven
 
-name: Java CI with Maven
-
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
+on: [push, pull_request]
 
 jobs:
-  markdown-link-check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: gaurav-nelson/github-action-markdown-link-check@v1
-
   basic-test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
         env: [BROWSER_NAME: chrome, BROWSER_NAME: firefox]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+        
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/basic-test/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2 
+      
       - name: maven clean test
         run: mvn clean test --file basic-test/pom.xml
         env: ${{ matrix.env }}
 
   basic-framework:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
         env: [BROWSER_NAME: chrome, BROWSER_NAME: firefox]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      
       - name: Set up JDK 11
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: maven clean test
+      
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**basic-framework/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2 
+      
+      - name: Maven Test
         run: mvn clean test --file basic-framework/pom.xml
         env: ${{ matrix.env }}
