@@ -1,3 +1,7 @@
+###############################################################################
+#                           Build dependencies                                #
+###############################################################################
+
 FROM edumco/maven:openjdk11-alpine-slim
 
 RUN mkdir /app
@@ -12,6 +16,12 @@ RUN mvn install --batch-mode --no-snapshot-updates dependency:resolve-plugins \
     dependency:resolve \
     dependency:go-offline
 
+###############################################################################
+#                           Test Aplication                                   #
+###############################################################################
+
+FROM edumco/maven:firefox-esr
+
 # Copies the code
 COPY . .
 
@@ -22,14 +32,18 @@ COPY . .
 #
 RUN mvn compile assembly:single --no-snapshot-updates
 
-# Creates the final image
-#
+RUN mvn test
+
+###############################################################################
+#                           Run application                                   #
+###############################################################################
+
 FROM adoptopenjdk/openjdk11:alpine-jre
 
 RUN mkdir /app
 
 WORKDIR /app
 
-COPY --from=0 /app/target/*jar-with-dependencies.jar /app/app.jar
+COPY --from=1 /app/target/*jar-with-dependencies.jar /app/app.jar
 
 CMD [ "java", "-jar", "app.jar" ]
