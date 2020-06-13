@@ -2,7 +2,6 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/edumco/selenium-examples/Java%20CI%20with%20Maven?label=Github%20Actions)](https://github.com/edumco/selenium-examples/actions)
-[![Travis (.com)](https://img.shields.io/travis/com/edumco/selenium-examples?label=Travis%20CI)](https://travis-ci.com/github/edumco/selenium-examples)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/eb2aabea896249c081881e7724f651da)](https://www.codacy.com/manual/edumco/selenium-examples?utm_source=github.com&utm_medium=referral&utm_content=edumco/selenium-examples&utm_campaign=Badge_Grade)
 
 Simple examples using Selenium Webdriver for test automation
