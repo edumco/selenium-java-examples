@@ -1,15 +1,25 @@
-FROM maven:3.6.3-jdk-11-slim as builder
+FROM edumco/maven:jdk8-alpine
 
-RUN mkdir /app
-
-COPY /src /app/src
-
-COPY /pom.xml /app/pom.xml
+RUN apk add --no-cache chromium
 
 WORKDIR /app
 
-RUN mvn clean
+COPY pom.xml pom.xml
 
-#FROM adoptopenjdk/openjdk11:alpine-jre
+RUN mvn install --batch-mode --no-snapshot-updates dependency:resolve-plugins \
+    dependency:resolve \
+    dependency:go-offline
 
-#COPY --from=builder 
+COPY . .
+
+RUN mvn --no-snapshot-updates compile assembly:single 
+
+FROM adoptopenjdk/openjdk11:alpine-jre
+
+WORKDIR /app
+
+COPY --from=0 /app/target/*jar-with-dependencies.jar /app/app.jar
+
+USER appuser
+
+CMD [ "java", "-jar", "app.jar" ]
