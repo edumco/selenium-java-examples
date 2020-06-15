@@ -1,4 +1,4 @@
-package core;
+package mco.maven.framework.core;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,51 +8,47 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Browser {
+public class Configuration {
 
-    private static WebDriver browser;
+    private static WebDriver driver;
 
-    public static WebDriver getBrowser() {
+    public static WebDriver driver() {
 
-        if (browser == null) {
-            setupBrowser();
+        if (driver == null) {
+            driver = loadDriver();
         }
 
-        return browser;
+        return driver;
     }
 
-    public static void setupBrowser() {
+    private static WebDriver loadDriver() {
 
-        String browserName = getBrowserName();
+        if (getBrowserName().contains("firefox")) {
 
-        if (browserName.contains("firefox")) {
+            return getFirefoxInstance();
+        } else {
 
-            configureFirefoxInstance();
-        }
-
-        if (browserName.contains("chrome")) {
-
-            configureChromeInstance();
+            return getChromeInstance();
         }
     }
 
-    private static void configureChromeInstance() {
+    private static ChromeDriver getChromeInstance() {
 
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
-        browser = new ChromeDriver(options);
+        return new ChromeDriver(options);
     }
 
-    private static void configureFirefoxInstance() {
+    private static FirefoxDriver getFirefoxInstance() {
 
         WebDriverManager.firefoxdriver().setup();
-        FirefoxOptions options = new FirefoxOptions();
+        final FirefoxOptions options = new FirefoxOptions();
         options.setHeadless(true);
-        browser = new FirefoxDriver(options);
+        return new FirefoxDriver(options);
     }
 
-    private static String getBrowserName() {
+    public static String getBrowserName() {
 
         String browserName = System.getenv("BROWSER_NAME");
 
