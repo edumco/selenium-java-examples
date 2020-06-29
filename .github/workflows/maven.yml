@@ -26,9 +26,6 @@ jobs:
 
   basic-framework:
     runs-on: ubuntu-18.04
-    strategy:
-      matrix:
-        env: [BROWSER_NAME: chrome, BROWSER_NAME: firefox]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -47,4 +44,3 @@ jobs:
 
       - name: Maven Test
         run: mvn clean test --file basic-framework/pom.xml
-        env: ${{ matrix.env }}
