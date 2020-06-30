@@ -36,7 +36,7 @@ public class Configuration {
 
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        // options.addArguments("--headless");
+        options.addArguments("--headless");
         return new ChromeDriver(options);
     }
 
