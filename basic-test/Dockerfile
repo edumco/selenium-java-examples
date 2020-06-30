@@ -1,4 +1,4 @@
-FROM edumco/maven:openjdk11-alpine
+FROM edumco/maven:jdk11-alpine
 
 RUN apk add --no-cache chromium
 
