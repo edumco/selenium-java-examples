@@ -2,10 +2,11 @@ package mco.maven.framework.pages;
 
 import mco.maven.framework.core.Browser;
 
+import org.openqa.selenium.NoSuchElementException;
+
 public class Home {
 
-    public static final String URL = "www.google.com";
-    public static final String FULL_URL = "https://www.google.com/";
+    public static final String URL = "https://www.google.com/";
     public static final String TITLE = "google";
 
     private static final String LOGIN_BUTTON = "#gb_70";
@@ -13,19 +14,30 @@ public class Home {
 
     public static boolean isAuthenticated() {
 
-        return userIsVisible();
-    }
-
-    public static boolean loginIsEnabled() {
-        return Browser.find(LOGIN_BUTTON).isEnabled();
+        return userIsVisible() && !loginIsVisible();
     }
 
     public static boolean loginIsVisible() {
-        return Browser.find(LOGIN_BUTTON).isDisplayed();
+
+        try {
+
+            return Browser.find(LOGIN_BUTTON).isDisplayed();
+
+        } catch (NoSuchElementException e) {
+
+            return false;
+        }
     }
 
     public static boolean userIsVisible() {
-        return Browser.find(USER_AVATAR).isDisplayed();
+
+        try {
+            return Browser.find(USER_AVATAR).isDisplayed();
+        } catch (NoSuchElementException e) {
+
+            return false;
+        }
+
     }
 
 }
