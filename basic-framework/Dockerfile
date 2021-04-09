@@ -1,4 +1,4 @@
-FROM edumco/maven:jdk8-alpine
+FROM maven:3.8.1-jdk-8-slim
 
 RUN apk add --no-cache chromium
 
