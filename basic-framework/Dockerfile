@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine:3.12 as builder
 
 RUN apk add --no-cache chromium maven
 
@@ -14,11 +14,11 @@ COPY . .
 
 RUN mvn --no-snapshot-updates compile assembly:single 
 
-FROM adoptopenjdk/openjdk11:alpine-jre
+FROM adoptopenjdk/openjdk11:alpine-jre as runner
 
 WORKDIR /app
 
-COPY --from=0 /app/target/*jar-with-dependencies.jar /app/app.jar
+COPY --from=builder /app/target/*jar-with-dependencies.jar /app/app.jar
 
 USER appuser
 
