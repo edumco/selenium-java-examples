@@ -12,9 +12,7 @@ Using selenium is easy but the setup still very complex. This repo try to put to
 
 ## Usage
 
-- [Basic Test](basic-test/README.md)
-
-- [Basic Framework](basic-framework/README.md)
+[Basic Framework](basic-framework/README.md)
 
 ## License
 
