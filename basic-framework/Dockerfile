@@ -1,6 +1,6 @@
-FROM maven:3.8.1-jdk-8-slim
+FROM alpine:3.12
 
-RUN apk add --no-cache chromium
+RUN apk add --no-cache chromium maven
 
 WORKDIR /app
 
