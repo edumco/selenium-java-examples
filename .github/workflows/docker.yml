@@ -1,0 +1,10 @@
+name: Build docker image
+
+on: [push, pull_request]
+ 
+ docker-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build --file "basic-framework/Dockerfile" --tag edumco/framework:latest "basic-framework"
