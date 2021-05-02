@@ -1,17 +1,10 @@
-name: CI with Maven and Docker
+name: Java build with maven
 
 on: [push, pull_request]
 
 jobs:
-  docker-build-basic-framework:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build --file "basic-framework/Dockerfile" --tag edumco/framework:latest "basic-framework"
-
   maven-build-basic-framework:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -20,7 +13,6 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-          
       - name: Cache Maven packages
         uses: actions/cache@v2.1.5
         with:
@@ -29,4 +21,3 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Maven Test
         run: mvn clean test --file basic-framework/pom.xml
-  
