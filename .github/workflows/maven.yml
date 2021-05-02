@@ -3,21 +3,28 @@ name: Java build with maven
 on: [push, pull_request]
 
 jobs:
-  maven-build-basic-framework:
+  maven-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '8', '11', '16' ]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set up JDK 11
+        
+      - name: Set up JDK ${{ matrix.java }}
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
           distribution: 'adopt'
+          check-latest: true
+          java-version: ${{ matrix.java }}
+          
       - name: Cache Maven packages
         uses: actions/cache@v2.1.5
         with:
           path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**basic-framework/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+          key: ${{ runner.os }}-${{ matrix.java }}-m2-${{ hashFiles('**basic-framework/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2-${{ hashFiles('**basic-framework/pom.xml') }}
+          
       - name: Maven Test
         run: mvn clean test --file basic-framework/pom.xml
