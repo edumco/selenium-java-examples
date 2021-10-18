@@ -1,6 +1,6 @@
-FROM alpine:3.12 as builder
+FROM ghcr.io/edumco/maven-alpine:jdk16 as builder
 
-RUN apk add --no-cache chromium maven
+RUN apk add --no-cache chromium
 
 WORKDIR /app
 
@@ -14,7 +14,7 @@ COPY . .
 
 RUN mvn --no-snapshot-updates compile assembly:single 
 
-FROM adoptopenjdk/openjdk11:alpine-jre as runner
+FROM adoptopenjdk/openjdk16:alpine-jre as runner
 
 WORKDIR /app
 
