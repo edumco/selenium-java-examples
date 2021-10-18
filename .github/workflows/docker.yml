@@ -8,4 +8,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2.3.5
     - name: Build the Docker image
-      run: docker buildx build --file "basic-framework/Dockerfile" --tag edumco/selenium-examples :latest "basic-framework"
+      run: docker buildx build --file "basic-framework/Dockerfile" --tag edumco/selenium-examples:latest "basic-framework"
