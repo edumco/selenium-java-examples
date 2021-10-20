@@ -16,57 +16,12 @@ The community around the Apache Maven project mantains a [public repository call
 
 For this example we use the following libraries:
 
-#### [Selenium Webdriver](https://www.selenium.dev/maven/)
+- [Junit](https://junit.org/junit5/) - Finds and execute your tests.
 
-```xml
-<dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>3.141.59</version>
-    <scope>test</scope>
-</dependency>
-```
+- [Webdriver Manager](https://github.com/bonigarcia/webdrivermanager) - Automates the configuration of webdriver.
 
-#### [Junit](https://junit.org/junit4/)
+- [Selenium Webdriver](https://www.selenium.dev/maven/) - Controls your browser to simulate a user.
 
-```xml
-<dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.13</version>
-    <scope>test</scope>
-</dependency>
-```
-
-#### [Webdriver Manager](https://github.com/bonigarcia/webdrivermanager)
-
-```xml
-<dependency>
-    <groupId>io.github.bonigarcia</groupId>
-    <artifactId>webdrivermanager</artifactId>
-    <version>3.8.1</version>
-    <scope>test</scope>
-</dependency>
-
-```
-
-#### [Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/)
-
-```xml
-<build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
-```
 
 ### Build
 
