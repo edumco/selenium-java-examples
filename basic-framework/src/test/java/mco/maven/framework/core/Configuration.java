@@ -53,7 +53,7 @@ public class Configuration {
         String browserName = System.getenv("BROWSER_NAME");
 
         if (browserName == null) {
-            browserName = "chrome";
+            browserName = "firefox";
         }
         return browserName.toLowerCase();
     }
