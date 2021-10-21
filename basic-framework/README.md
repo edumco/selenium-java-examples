@@ -22,16 +22,33 @@ For this example we use the following libraries:
 
 - [Selenium Webdriver](https://www.selenium.dev/maven/) - Controls your browser to simulate a user.
 
+### Project folders
 
-### Build
+All maven projects use a [basic folder structure to organize its files](https://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html)
 
-During the build the pom is scanned and all the configs are set and the libraries are automaticly downloaded.
+In this sample project I have added only the test related folders so you can focus only on the testing code.
 
-In this process two folders are created: target and bin. These folders should not be added to the code repository so you should add these folders on the gitignore file.
 
-```gitignore
-bin
-target
+The first part of the folder structure is the maven way of foldering
+```
+src/
+  test/
+    java/
 ```
 
-## 
+The second part is the name of the package, usualy an inverted URL (edumco.com)
+
+```
+com/
+  edumco/
+```
+
+The third part is the most important, it contains the structure you gonna use on your project
+
+```
+core/
+pages/
+tests/
+```
+
+On `core`goes your configuration and browser abstraction classes, on `pages` you create a class for each web-page on your project following [the Page Object Pattern](https://martinfowler.com/bliki/PageObject.html) and finally on the `tests` folder gos all your test cases classes.
