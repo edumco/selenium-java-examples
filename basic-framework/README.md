@@ -51,4 +51,4 @@ pages/
 tests/
 ```
 
-On `core`goes your configuration and browser abstraction classes, on `pages` you create a class for each web-page on your project following [the Page Object Pattern](https://martinfowler.com/bliki/PageObject.html) and finally on the `tests` folder gos all your test cases classes.
+On `core` goes your configuration and browser abstraction classes, on `pages` you create a class for each web-page on your project following [the Page Object Pattern](https://martinfowler.com/bliki/PageObject.html) and finally on the `tests` folder goes all your test cases classes.
