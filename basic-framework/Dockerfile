@@ -1,4 +1,4 @@
-FROM ghcr.io/edumco/maven-alpine:jdk16 as builder
+FROM ghcr.io/edumco/maven-alpine:jdk17 as builder
 
 RUN apk add --no-cache chromium
 
