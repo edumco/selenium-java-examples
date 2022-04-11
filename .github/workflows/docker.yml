@@ -6,6 +6,6 @@ jobs:
  docker-build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2.4.0
+    - uses: actions/checkout@v3.0.0
     - name: Build the Docker image
       run: docker buildx build --file "basic-framework/Dockerfile" --tag edumco/selenium-examples:latest "basic-framework"
