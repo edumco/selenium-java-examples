@@ -1,6 +1,6 @@
 name: Java build with maven
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   maven-test:
