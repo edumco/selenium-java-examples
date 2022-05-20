@@ -14,7 +14,7 @@ COPY . .
 
 RUN mvn --no-snapshot-updates compile assembly:single 
 
-FROM openjdk:17-alpine3.14 as runner
+FROM openjdk:18-alpine3.14 as runner
 
 WORKDIR /app
 
