@@ -1,4 +1,4 @@
-# Selenium Examples ![Selenium icon](icon.png)
+# Selenium Java Examples ![Selenium icon](icon.png)
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/edumco/selenium-examples/Java%20CI%20with%20Maven?label=Github%20Actions)](https://github.com/edumco/selenium-examples/actions)
